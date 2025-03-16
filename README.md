@@ -1,19 +1,26 @@
 # My Music - 我的歌单
 
 **PC端预览**
+
 ![pc](https://github.com/sunpma/MyMusic/blob/main/assets/1.jpg)
 
 **移动端预览**
+
 <img src="https://github.com/sunpma/MyMusic/blob/main/assets/2.png" width="30%" height="30%">
 
 [Demo 示例](https://suntl.com/other/music/)
 
 **说明**
+
 编辑 `music.php` 文件选择媒体文件加载方式 'local' 或 'remote'
+
 方式一：
+
 'local' - 加载 `music` 文件夹内媒体文件
 方式二：
+
 'remote' - 读取远程直链地址
+
 ```
     // 模式 2: 读取远程直链地址
     $remoteUrls = [
