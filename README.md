@@ -1,10 +1,11 @@
 # My Music - 我的歌单
 
-**预览**
+**PC端预览**
 ![pc](https://github.com/sunpma/MyMusic/blob/main/assets/1.jpg)
+**移动端预览**
 ![move](https://github.com/sunpma/MyMusic/blob/main/assets/2.png)
-<img align="right" width="720" src="https://github.com/sunpma/MyMusic/blob/main/assets/2.png"/>
-移动端预览
+<img src="https://github.com/sunpma/MyMusic/blob/main/assets/2.png" width="30%" height="30%">
+
 [Demo 示例](https://suntl.com/other/music/)
 
 **说明**
