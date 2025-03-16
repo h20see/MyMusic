@@ -8,6 +8,7 @@
 
 <img src="https://github.com/sunpma/MyMusic/blob/main/assets/2.png" width="30%" height="30%">
 
+
 [Demo 示例](https://suntl.com/other/music/)
 
 **说明**
@@ -17,6 +18,7 @@
 方式一：
 
 'local' - 加载 `music` 文件夹内媒体文件
+
 方式二：
 
 'remote' - 读取远程直链地址
