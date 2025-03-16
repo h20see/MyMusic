@@ -2,8 +2,8 @@
 
 **PC端预览**
 ![pc](https://github.com/sunpma/MyMusic/blob/main/assets/1.jpg)
+
 **移动端预览**
-![move](https://github.com/sunpma/MyMusic/blob/main/assets/2.png)
 <img src="https://github.com/sunpma/MyMusic/blob/main/assets/2.png" width="30%" height="30%">
 
 [Demo 示例](https://suntl.com/other/music/)
