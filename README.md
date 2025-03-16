@@ -3,7 +3,8 @@
 **预览**
 ![pc](https://github.com/sunpma/MyMusic/blob/main/assets/1.jpg)
 ![move](https://github.com/sunpma/MyMusic/blob/main/assets/2.png)
-
+<img align="right" width="720" src="https://github.com/sunpma/MyMusic/blob/main/assets/2.png"/>
+移动端预览
 [Demo 示例](https://suntl.com/other/music/)
 
 **说明**
