@@ -1,8 +1,8 @@
 # My Music - 我的歌单
 
 **预览**
-![pc](图片链接)
-![move](图片链接)
+![pc](https://github.com/sunpma/MyMusic/blob/main/assets/1.jpg)
+![move](https://github.com/sunpma/MyMusic/blob/main/assets/2.png)
 
 [Demo 示例](https://suntl.com/other/music/)
 
