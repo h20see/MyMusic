@@ -11,19 +11,19 @@
 
 **说明**
 
-格式支持：`mp3` `flac` `wav` `ogg`
+格式支持：`mp3``flac``wav``ogg`
 
-专辑封面：`/assets/album`目录存放封面，命名与音频文件一致，支持`jpg` `png` `webp`格式
+专辑封面：`/assets/album`目录存放封面，命名与音频文件一致，支持`jpg``png``webp`格式
 
-编辑`music.php`文件选择媒体文件加载方式'local'或'remote'
+编辑`music.php`文件选择媒体文件加载方式`local`或`remote`
 
 方式一：
 
-'local' 加载`music`文件夹内媒体文件（包含子文件夹）
+`local` 加载`music`文件夹内媒体文件（包含子文件夹）
 
 方式二：
 
-'remote' 读取远程直链地址
+`remote` 读取远程直链地址
 
 ```
     // 模式 2: 读取远程直链地址
