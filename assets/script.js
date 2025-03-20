@@ -40,11 +40,45 @@ function loadTrack(index) {
     loadCover();
 }
 
-// 加载随机封面图片
+// 加载封面图片
 function loadCover() {
     const cover = document.getElementById('cover');
-    const randomImage = `./assets/img/${Math.floor(Math.random() * 20) + 1}.jpg`;
-    cover.style.backgroundImage = `url('${randomImage}')`;
+    const song = songs[currentTrackIndex];
+    // 从 url 中提取文件名（不含扩展名）
+    const urlParts = song.url.split('/');
+    const fullFileName = urlParts[urlParts.length - 1]; // 获取文件名部分
+    const fileName = fullFileName.substring(0, fullFileName.lastIndexOf('.')); // 移除扩展名
+    
+    // 支持的图片格式
+    const extensions = ['jpg', 'png', 'webp'];
+    let coverFound = false;
+
+    // 异步检查每种格式的图片
+    const checkCover = async () => {
+        for (const ext of extensions) {
+            const albumCover = `./assets/album/${fileName}.${ext}`;
+            try {
+                const response = await fetch(albumCover, { method: 'HEAD' }); // 使用 HEAD 请求检查文件存在性
+                if (response.ok) {
+                    cover.style.backgroundImage = `url('${albumCover}')`;
+                    coverFound = true;
+                    break; // 找到匹配图片后退出循环
+                }
+            } catch (error) {
+                // 继续检查下一种格式
+                continue;
+            }
+        }
+
+        // 如果没有找到对应图片，使用随机图片
+        if (!coverFound) {
+            const randomImage = `./assets/img/${Math.floor(Math.random() * 20) + 1}.jpg`;
+            cover.style.backgroundImage = `url('${randomImage}')`;
+        }
+    };
+
+    // 执行检查
+    checkCover();
 }
 
 // 播放指定歌曲
@@ -53,7 +87,7 @@ function playTrack(index) {
     loadTrack(index); // 加载新歌曲
     audio.play(); // 直接播放
     isPlaying = true; // 更新播放状态
-    document.getElementById('playBtn').innerHTML = '&#10074;&#10074;'; // 更新按钮图标
+    document.getElementById('playBtn').innerHTML = '❚❚'; // 更新按钮图标
     renderSongList(); // 重新渲染播放列表
 }
 
@@ -93,10 +127,10 @@ function nextTrack() {
 function togglePlay() {
     if (isPlaying) {
         audio.pause();
-        document.getElementById('playBtn').innerHTML = '&#9658;';
+        document.getElementById('playBtn').innerHTML = '►';
     } else {
         audio.play();
-        document.getElementById('playBtn').innerHTML = '&#10074;&#10074;';
+        document.getElementById('playBtn').innerHTML = '❚❚';
     }
     isPlaying = !isPlaying;
 }
