@@ -1,5 +1,4 @@
 <?php
-// 设定模式：'local' 或 'remote'
 $mode = 'local';
 
 $songs = [];
