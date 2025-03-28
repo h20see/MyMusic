@@ -35,6 +35,7 @@ body {
 
 .directory {
     width: 280px; /* 加宽歌曲列表宽度 */
+    height: 580px; /* 固定高度 */
     margin-right: 20px;
     overflow-y: scroll;
     border-right: 1px solid #d0d8e6;
