@@ -1,8 +1,10 @@
 const audio = new Audio();
-audio.volume = 0.2;
+audio.volume = 0.2; // 默认音量设置为 20%
 let isPlaying = false;
 let currentTrackIndex = 0;
 let songs = [];
+let playMode = 'loop'; // 默认模式为列表循环
+let isMuted = false;
 
 // ✅ 从 `music.json` 获取歌曲列表
 async function loadMusicDirectory() {
