@@ -7,7 +7,7 @@ let isMuted = false;
 
 // ✅ 直接在前端定义歌曲列表（不依赖 PHP）
 const songs = [
-    { url: "./music/周杰伦 - 红尘客栈.mp3", artist: "周杰伦", title: "红尘客栈" },
+    { url: "./music/王菲%20-%20致青春.mp3", artist: "周杰伦", title: "红尘客栈" },
     { url: "./music/卢冠廷 - 一生所爱.flac", artist: "卢冠廷", title: "一生所爱" },
     { url: "./music/吴雨霏 - 吴哥窟.mp3", artist: "吴雨霏", title: "吴哥窟" }
 ];
