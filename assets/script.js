@@ -1,32 +1,29 @@
 const audio = new Audio();
-audio.volume = 0.2; // 默认音量设置为 20%
+audio.volume = 0.2;
 let isPlaying = false;
 let currentTrackIndex = 0;
-let playMode = 'loop'; // 默认播放模式
-let isMuted = false;
+let songs = [];
 
-// ✅ 直接在前端定义歌曲列表（不依赖 PHP）
-const songs = [
-    { url: "./music/王菲%20-%20致青春.mp3", artist: "周杰伦", title: "红尘客栈" },
-    { url: "./music/卢冠廷 - 一生所爱.flac", artist: "卢冠廷", title: "一生所爱" },
-    { url: "./music/吴雨霏 - 吴哥窟.mp3", artist: "吴雨霏", title: "吴哥窟" }
-];
-
-// ✅ 页面加载时渲染歌曲列表
-document.addEventListener("DOMContentLoaded", () => {
-    renderSongList();
-    if (songs.length > 0) {
-        loadTrack(currentTrackIndex);
+// ✅ 从 `music.json` 获取歌曲列表
+async function loadMusicDirectory() {
+    try {
+        const response = await fetch('./music.json'); // 读取 JSON
+        songs = await response.json();
+        renderSongList();
+        if (songs.length > 0) {
+            loadTrack(currentTrackIndex);
+        }
+    } catch (error) {
+        console.error('加载音乐列表失败:', error);
     }
-});
+}
 
 // 🎵 渲染歌曲列表
 function renderSongList() {
     const songList = document.getElementById('songList');
     songList.innerHTML = songs
-        .map(
-            (song, index) =>
-                `<li onclick="playTrack(${index})" class="${index === currentTrackIndex ? 'active' : ''}">${song.artist} - ${song.title}</li>`
+        .map((song, index) =>
+            `<li onclick="playTrack(${index})" class="${index === currentTrackIndex ? 'active' : ''}">${song.artist} - ${song.title}</li>`
         )
         .join('');
 }
@@ -37,6 +34,16 @@ function loadTrack(index) {
     audio.src = song.url;
     document.getElementById('artist').textContent = song.artist;
     document.getElementById('title').textContent = song.title;
+}
+
+// 🎵 播放指定歌曲
+function playTrack(index) {
+    currentTrackIndex = index;
+    loadTrack(index);
+    audio.play();
+    isPlaying = true;
+    document.getElementById('playBtn').innerHTML = '❚❚';
+    renderSongList();
 }
 
 // 🎵 播放/暂停
@@ -51,12 +58,5 @@ function togglePlay() {
     isPlaying = !isPlaying;
 }
 
-// 🎵 播放指定歌曲
-function playTrack(index) {
-    currentTrackIndex = index;
-    loadTrack(index);
-    audio.play();
-    isPlaying = true;
-    document.getElementById('playBtn').innerHTML = '❚❚';
-    renderSongList();
-}
+// ✅ 页面加载时执行
+document.addEventListener("DOMContentLoaded", loadMusicDirectory);
